@@ -1,6 +1,15 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+/*subarraysum formula
+  
+  subarraysum(i,j) = prefixSum[j]-prefixSum[i-1]
+  and also
+  k=prefixSum[j]-prefixSum[i-1]
+  
+
+*/
+
 class Solution {
 public:
     int minSubArrayLen(int target, vector<int>& nums) {
@@ -12,6 +21,12 @@ public:
         //now calculate prefixSum array 
         for(int i=1; i<n; i++){
             prefixSum[i]=prefixSum[i-1]+nums[i];
+        }
+        //using un_ordered map O(1) to store prefix sum and its frequencies
+        unordered_map<int,int> m;
+        for(int j=0; j<n; j++){
+            if(prefixSum[j]==target) cnt++;
+            
         }
         
     }
